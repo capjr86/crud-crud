@@ -4,7 +4,9 @@ const server = express();
 
 server.use(bodyParser.json());
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
+
+
 
 const employees = []; //[{fName: "Matt", lName: "Sugu", email: "matt.s@amazon.com", role: "sde", eId: "123432"}]
 
@@ -69,5 +71,7 @@ server.delete("/employees/:id", (req, res) => {
     return res.status(404).send("Employee not found");
   }
   employees.splice(empIdx, 1);
-  res.send({success: "Success"});
+  res.send({
+    success: "Success"
+  });
 })

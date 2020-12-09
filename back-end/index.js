@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const server = express();
 
 server.use(bodyParser.json());
 
 server.listen(process.env.PORT || 3000);
-
+server.use(cors());
 
 
 const employees = []; //[{fName: "Matt", lName: "Sugu", email: "matt.s@amazon.com", role: "sde", eId: "123432"}]
